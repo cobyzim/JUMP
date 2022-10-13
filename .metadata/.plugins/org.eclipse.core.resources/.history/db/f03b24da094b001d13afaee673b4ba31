@@ -6,11 +6,6 @@ public class Seat {
 	private int col;
 	private String name;
 	
-	//Default no-args constructor
-	public Seat() {
-		
-	}
-	
 	public Seat(int row, int col, String name) {
 		this.row = row;
 		this.col = col;
@@ -40,6 +35,17 @@ public class Seat {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public boolean seatIsEmpty() {
+		boolean isEmpty = true;
+		if (!this.name.equals(null)) {
+			isEmpty = false;
+		}
+		
+		return isEmpty;
+	}
+	
+	
 	
 	
 	

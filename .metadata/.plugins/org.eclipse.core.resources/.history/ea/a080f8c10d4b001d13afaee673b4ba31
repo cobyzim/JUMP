@@ -29,24 +29,20 @@ public class SeatReservationMain {
 		System.out.println();
 		System.out.println("Which seat do you want to reserve?");
 		System.out.println("Row: ");
-		int row1 = Integer.parseInt(scanner.nextLine());
-		//TODO: Add check to make sure provided row is valid
+		int row = scanner.nextInt();
 		System.out.println("Column: ");
-		int col1 = Integer.parseInt(scanner.nextLine());
-		//TODO: Add check to make sure provided row is valid
+		int col = scanner.nextInt();
 		System.out.println("Name of person sitting here: ");
-		String name1 = scanner.nextLine();
-		//TODO: Add check to make sure name is actually a string (not a char or number)
-		System.out.println();
+		String name = scanner.nextLine();
 		
-		seats[row1 - 1][col1 - 1].setRow(row1);
-		seats[row1 - 1][col1 - 1].setCol(col1);
-		seats[row1 - 1][col1 - 1].setName(name1);
+		seats[row][col].setRow(row);
+		seats[row][col].setCol(col);
+		seats[row][col].setName(name);
 		
 		System.out.println("===============" + "\nSEATS" + "\n===============\n");
 		System.out.println("    1 2 3 4 5" + "\n   ----------");
 		counter = 1;
-		for (int row = 0; row < seats.length; row++) {
+		for (row = 0; row < seats.length; row++) {
 			System.out.print(counter + " | ");
 			for (int cols = 0; cols < seats[row].length; cols++) {
 				if (seatIsEmpty(seats[row][cols])) {
@@ -65,12 +61,6 @@ public class SeatReservationMain {
 	
 	public static Seat[][] genSeats(int numRows, int numCols) {
 		Seat[][] seatGrid = new Seat[numRows][numCols];
-		//Have to initialize seats so that the objects aren't null
-		for (int i = 0; i < numRows; i++) {
-			for (int j = 0; j < numCols; j++) {
-				seatGrid[i][j] = new Seat();
-			}
-		}
 		
 		return seatGrid;
 	}
@@ -78,7 +68,7 @@ public class SeatReservationMain {
 	//Check for empty seat helper method
 	public static boolean seatIsEmpty(Seat seat) {
 		boolean isEmpty = false;
-		if (seat.getName() == null) {
+		if (seat == null) {
 			isEmpty = true;
 		}
 		
