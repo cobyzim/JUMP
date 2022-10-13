@@ -9,40 +9,64 @@ public class SeatReservationMain {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Display empty seats grid
+//		System.out.println("===============" + "\nSEATS" + "\n===============\n");
+//		System.out.println("    1 2 3 4 5" + "\n   ----------");
+//		int counter = 1;
+//		for (int row = 0; row < seats.length; row++) {
+//			System.out.print(counter + " | ");
+//			for (int cols = 0; cols < seats[row].length; cols++) {
+//				if (seatIsEmpty(seats[row][cols])) {
+//					System.out.print("o ");
+//				}
+//				else {
+//					System.out.print("x ");
+//				}
+//			}
+//			counter++;
+//			System.out.println();
+//		}
 		printSeatingGrid(seats);
 		
 		//First seating placement based on user input
 		System.out.println();
 		System.out.println("Which seat do you want to reserve?");
 		System.out.println("Row: ");
-		int row = Integer.parseInt(scanner.nextLine());
+		int row1 = Integer.parseInt(scanner.nextLine());
 		//TODO: Add check to make sure provided row is valid
 		System.out.println("Column: ");
-		int col = Integer.parseInt(scanner.nextLine());
+		int col1 = Integer.parseInt(scanner.nextLine());
 		//TODO: Add check to make sure provided row is valid
 		System.out.println("Name of person sitting here: ");
 		String name1 = scanner.nextLine();
 		//TODO: Add check to make sure name is actually a string (not a char or number)
 		System.out.println();
 		
-		seats[row - 1][col - 1].setRow(row);
-		seats[row - 1][col - 1].setCol(col);
-		seats[row - 1][col - 1].setName(name1);
+		seats[row1 - 1][col1 - 1].setRow(row1);
+		seats[row1 - 1][col1 - 1].setCol(col1);
+		seats[row1 - 1][col1 - 1].setName(name1);
 		
+//		System.out.println("===============" + "\nSEATS" + "\n===============\n");
+//		System.out.println("    1 2 3 4 5" + "\n   ----------");
+//		counter = 1;
+//		for (int row = 0; row < seats.length; row++) {
+//			System.out.print(counter + " | ");
+//			for (int cols = 0; cols < seats[row].length; cols++) {
+//				if (seatIsEmpty(seats[row][cols])) {
+//					System.out.print("o ");
+//				}
+//				else {
+//					System.out.print("x ");
+//				}
+//			}
+//			counter++;
+//			System.out.println();
+//		}
 		printSeatingGrid(seats);
 		
 		
 		
-		//Do Loop for if user wants to continue
-//		String resp = "";
-//		do {
-//			System.out.println("Are you finished reserving seats? (Y/N)");
-//			resp = scanner.nextLine();
-//			resp.toUpperCase();
-//			
-//			
-//		}
-//		while(resp.equals("N"));
+		
+		
 		
 		
 	}

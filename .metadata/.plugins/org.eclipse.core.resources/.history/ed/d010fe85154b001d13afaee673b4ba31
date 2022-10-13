@@ -33,18 +33,6 @@ public class SeatReservationMain {
 		
 		
 		
-		//Do Loop for if user wants to continue
-//		String resp = "";
-//		do {
-//			System.out.println("Are you finished reserving seats? (Y/N)");
-//			resp = scanner.nextLine();
-//			resp.toUpperCase();
-//			
-//			
-//		}
-//		while(resp.equals("N"));
-		
-		
 	}
 	
 	public static Seat[][] genSeats(int numRows, int numCols) {
