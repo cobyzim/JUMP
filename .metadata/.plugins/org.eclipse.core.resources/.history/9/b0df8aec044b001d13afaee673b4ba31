@@ -1,0 +1,19 @@
+package com.cognixia.jump.miniproject;
+
+public class SeatReservationMain {
+
+	public static void main(String[] args) {
+		Seat[][] seats = genSeats(5,5);
+		
+		//Start seating loop
+		System.out.println("===============" + "\nSEATS" + "\n===============");
+	}
+	
+	public static Seat[][] genSeats(int numRows, int numCols) {
+		Seat[][] seatGrid = new Seat[numRows][numCols];
+		
+		return seatGrid;
+	}
+	
+
+}

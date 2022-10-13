@@ -1,0 +1,9 @@
+package com.cognixia.jump.miniproject;
+
+public class SeatReservationMain {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

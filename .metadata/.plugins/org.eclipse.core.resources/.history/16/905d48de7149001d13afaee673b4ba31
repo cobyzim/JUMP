@@ -1,0 +1,25 @@
+package com.cognixia.jump.corejava.classesandobjects;
+
+// CoreJava Program to Demonstrate use of Animal Class
+public class AnimalDemo {
+
+	public static void main(String[] args) {
+		// Class Declaration
+		Animal animal;
+
+		// Object Initialization & show constructors
+		animal = new Animal();
+		Animal animal2 = new Animal(45.0, "Dog");
+		
+		// Show messages and methods
+		animal.setType("Cat");
+		animal.setWeight(10.0);
+		
+		// Use getters and toString to print to console
+		// Show that you cannot access the private methods, must use the getters
+		System.out.println(animal2.getType());
+		System.out.println(animal.toString());
+		System.out.println(animal2.toString());
+	}
+
+}
