@@ -84,12 +84,11 @@ public class SeatReservationMain {
 		System.out.println();
 		System.out.println("Which seat do you want to reserve?");
 		System.out.println("Row: ");
-		
 		int row = Integer.parseInt(scanner.nextLine());
 		//TODO: Add check to make sure provided row is valid
 		System.out.println("Column: ");
 		int col = Integer.parseInt(scanner.nextLine());
-		//TODO: Add check to make sure provided col is valid
+		//TODO: Add check to make sure provided row is valid
 		System.out.println("Name of person sitting here: ");
 		String name = scanner.nextLine();
 		//TODO: Add check to make sure name is actually a string (not a char or number)

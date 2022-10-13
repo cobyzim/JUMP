@@ -87,9 +87,14 @@ public class SeatReservationMain {
 		
 		int row = Integer.parseInt(scanner.nextLine());
 		//TODO: Add check to make sure provided row is valid
+		if (row != 1 && row != 2 && row != 3 && row != 4 && row != 5) {
+			System.out.println("INVALID ROW: Please choose a valid row (1-5)");
+			reserveSeat(seats, scanner);
+		}
+		
 		System.out.println("Column: ");
 		int col = Integer.parseInt(scanner.nextLine());
-		//TODO: Add check to make sure provided col is valid
+		//TODO: Add check to make sure provided row is valid
 		System.out.println("Name of person sitting here: ");
 		String name = scanner.nextLine();
 		//TODO: Add check to make sure name is actually a string (not a char or number)

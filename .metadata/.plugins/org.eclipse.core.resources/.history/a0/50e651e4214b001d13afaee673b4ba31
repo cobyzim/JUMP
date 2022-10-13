@@ -84,24 +84,24 @@ public class SeatReservationMain {
 		System.out.println();
 		System.out.println("Which seat do you want to reserve?");
 		System.out.println("Row: ");
-		
 		int row = Integer.parseInt(scanner.nextLine());
 		//TODO: Add check to make sure provided row is valid
 		System.out.println("Column: ");
 		int col = Integer.parseInt(scanner.nextLine());
-		//TODO: Add check to make sure provided col is valid
+		//TODO: Add check to make sure provided row is valid
 		System.out.println("Name of person sitting here: ");
-		String name = scanner.nextLine();
+		String name1 = scanner.nextLine();
 		//TODO: Add check to make sure name is actually a string (not a char or number)
 		System.out.println();
-
+		
+		//TODO: Add check to see if someone has already reserved this seat
 		if (seats[row - 1][col - 1].getName() == null) {
 			seats[row - 1][col - 1].setRow(row);
 			seats[row - 1][col - 1].setCol(col);
-			seats[row - 1][col - 1].setName(name);
+			seats[row - 1][col - 1].setName(name1);
 		}
 		else {
-			System.out.println(seats[row - 1][col - 1].getName() + " has already reserved this seat, please pick a different one");
+			System.out.println("Someone has already reserved this seat, try again");
 			reserveSeat(seats, scanner);
 		}
 		
