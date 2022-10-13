@@ -21,13 +21,14 @@ public class SeatReservationMain {
 		String resp = "";
 		do {
 			System.out.println("Are you finished reserving seats? (Y/N)");
-			resp = scanner.nextLine().toUpperCase();
+			resp = scanner.nextLine();
+			resp.toUpperCase();
 			
 			if (resp.equals("N")) {
 				reserveSeat(seats, scanner);
 			}
 			else {
-				System.out.println("\nThanks for reserving your seats!\n");
+				System.out.println("Thanks for reserving your seats!");
 				printSeatingGrid(seats);
 			}
 			
@@ -99,7 +100,6 @@ public class SeatReservationMain {
 		seats[row - 1][col - 1].setName(name1);
 		
 		printSeatingGrid(seats);
-		System.out.println();
 	}
 	
 	

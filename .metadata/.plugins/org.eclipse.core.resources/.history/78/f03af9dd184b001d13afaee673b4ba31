@@ -27,7 +27,7 @@ public class SeatReservationMain {
 				reserveSeat(seats, scanner);
 			}
 			else {
-				System.out.println("\nThanks for reserving your seats!\n");
+				System.out.println("Thanks for reserving your seats!");
 				printSeatingGrid(seats);
 			}
 			

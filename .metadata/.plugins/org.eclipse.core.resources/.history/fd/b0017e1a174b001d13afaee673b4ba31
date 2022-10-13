@@ -11,28 +11,38 @@ public class SeatReservationMain {
 		//Display empty seats grid
 		printSeatingGrid(seats);
 		
-		reserveSeat(seats, scanner);
+		//First seating placement based on user input
+		System.out.println();
+		System.out.println("Which seat do you want to reserve?");
+		System.out.println("Row: ");
+		int row = Integer.parseInt(scanner.nextLine());
+		//TODO: Add check to make sure provided row is valid
+		System.out.println("Column: ");
+		int col = Integer.parseInt(scanner.nextLine());
+		//TODO: Add check to make sure provided row is valid
+		System.out.println("Name of person sitting here: ");
+		String name1 = scanner.nextLine();
+		//TODO: Add check to make sure name is actually a string (not a char or number)
+		System.out.println();
 		
+		seats[row - 1][col - 1].setRow(row);
+		seats[row - 1][col - 1].setCol(col);
+		seats[row - 1][col - 1].setName(name1);
 		
+		printSeatingGrid(seats);
 		
 		
 		
 		//Do Loop for if user wants to continue
-		String resp = "";
-		do {
-			System.out.println("Are you finished reserving seats? (Y/N)");
-			resp = scanner.nextLine().toUpperCase();
-			
-			if (resp.equals("N")) {
-				reserveSeat(seats, scanner);
-			}
-			else {
-				System.out.println("\nThanks for reserving your seats!\n");
-				printSeatingGrid(seats);
-			}
-			
-		}
-		while(resp.equals("N"));
+//		String resp = "";
+//		do {
+//			System.out.println("Are you finished reserving seats? (Y/N)");
+//			resp = scanner.nextLine();
+//			resp.toUpperCase();
+//			
+//			
+//		}
+//		while(resp.equals("N"));
 		
 		
 	}
@@ -60,7 +70,7 @@ public class SeatReservationMain {
 	}
 	
 	
-	//Method to print the current seating grid
+	//TODO: Can make an optimized method to go inside "game loop" that doesn't return anything, just prints to the console
 	public static void printSeatingGrid(Seat[][] seats) {
 		System.out.println("===============" + "\nSEATS" + "\n===============\n");
 		System.out.println("    1 2 3 4 5" + "\n   ----------");
@@ -78,28 +88,6 @@ public class SeatReservationMain {
 			counter++;
 			System.out.println();
 		}
-	}
-	
-	public static void reserveSeat(Seat[][] seats, Scanner scanner) {
-		System.out.println();
-		System.out.println("Which seat do you want to reserve?");
-		System.out.println("Row: ");
-		int row = Integer.parseInt(scanner.nextLine());
-		//TODO: Add check to make sure provided row is valid
-		System.out.println("Column: ");
-		int col = Integer.parseInt(scanner.nextLine());
-		//TODO: Add check to make sure provided row is valid
-		System.out.println("Name of person sitting here: ");
-		String name1 = scanner.nextLine();
-		//TODO: Add check to make sure name is actually a string (not a char or number)
-		System.out.println();
-		
-		seats[row - 1][col - 1].setRow(row);
-		seats[row - 1][col - 1].setCol(col);
-		seats[row - 1][col - 1].setName(name1);
-		
-		printSeatingGrid(seats);
-		System.out.println();
 	}
 	
 	
