@@ -169,8 +169,9 @@ public class SeatReservationMain {
 			row = Integer.parseInt(scanner.nextLine());
 			while (row != 1 && row != 2 && row != 3 && row != 4 && row !=5) {
 				System.out.println("INVALID ROW: Please enter a valid row (1-5)\n");
-				System.out.println("Row: ");
-				row = Integer.parseInt(scanner.nextLine());
+//				System.out.println("Row: ");
+//				row = Integer.parseInt(scanner.nextLine());
+				break;
 			}
 			return row;
 		}

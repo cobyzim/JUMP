@@ -178,7 +178,14 @@ public class SeatReservationMain {
 			while (row != 1 && row != 2 && row != 3 && row != 4 && row !=5) {
 				System.out.println("INVALID ROW: Row must be a number between 1 and 5\n");
 				System.out.println("Row: ");
-				row = Integer.parseInt(scanner.nextLine());
+				try {
+					row = Integer.parseInt(scanner.nextLine());
+				}
+				catch (NumberFormatException e2) {
+					System.out.println("INVALID ROW: Row must be a number between 1 and 5\n");
+					System.out.println("Row: ");
+					row = Integer.parseInt(scanner.nextLine());
+				}
 			}
 			return row;
 		}

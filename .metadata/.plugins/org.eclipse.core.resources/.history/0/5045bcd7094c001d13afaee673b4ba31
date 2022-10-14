@@ -13,84 +13,28 @@ public class SeatReservationMain {
 		
 		//TODO: Have an options menu pop up first so people can choose what they want to do
 		//TODO: i.e. list the names of the people in a reserved seat: probably do this in a separate do-while
-		menuOptions(scanner, seats);
 		
+		reserveSeat(seats, scanner);
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		//Do-While Loop if user wants to continue
+		String resp = "";
+		do {
+			System.out.println("Are you finished reserving seats? (Y/N)");
+			resp = scanner.nextLine().toUpperCase();
+			
+			if (resp.equals("N")) {
+				reserveSeat(seats, scanner);
+			}
+			else {
+				System.out.println("\nThanks for reserving your seats!\n");
+				printSeatingGrid(seats);
+			}
+			
+		}
+		while(resp.equals("N"));
 		
 		
 	}
-	
-	//User Choices Helper Method
-		public static void menuOptions(Scanner scanner, Seat[][] seats) {
-			boolean usrFinished = false;
-			
-			do {
-				System.out.println("\nPlease choose an option: \n");
-				System.out.println("1) Reserve Seats");
-				System.out.println("2) View Reserved Seats");
-				System.out.println("3) Delete Seat Reservation");
-				System.out.println("4) Move Seat");
-				System.out.println("5) Save and Exit");
-				
-				int usrChoice = Integer.parseInt(scanner.nextLine());
-				
-				switch (usrChoice) {
-					case 1: 
-						reserveSeat(seats, scanner);
-					
-						//Do-While Loop if user wants to continue
-						String resp = "";
-						do {
-							System.out.println("Are you finished reserving seats? (Y/N)");
-							resp = scanner.nextLine().toUpperCase();
-						
-							if (resp.equals("N")) {
-								reserveSeat(seats, scanner);
-							}
-							else {
-								System.out.println("\nThanks for reserving your seats!\n");
-								printSeatingGrid(seats);
-								break;
-							}
-						
-						}
-						while(resp.equals("N"));
-						
-						break;
-						
-					case 2:
-						System.out.println("Option 2");
-						break;
-						
-					case 3:
-						System.out.println("Option 3");
-						break;
-						
-					case 4:
-						System.out.println("Option 4");
-						break;
-						
-					case 5:
-						System.out.println("Thank you for using the application!");
-						usrFinished = true;
-						break;
-						
-					default:
-						System.out.println("Invalid Option, Try again");
-						break;
-					
-				}
-			}
-			while (usrFinished == false);
-		}
 	
 	public static Seat[][] genSeats(int numRows, int numCols) {
 		Seat[][] seatGrid = new Seat[numRows][numCols];
@@ -216,10 +160,5 @@ public class SeatReservationMain {
 		}
 		return name;
 	}
-	
-	
-	
-	
-	
 	
 }

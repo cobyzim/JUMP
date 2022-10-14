@@ -30,18 +30,15 @@ public class SeatReservationMain {
 	
 	//User Choices Helper Method
 		public static void menuOptions(Scanner scanner, Seat[][] seats) {
-			boolean usrFinished = false;
+			System.out.println("Please choose an option: \n");
+			System.out.println("1) Reserve Seats");
+			System.out.println("2) View Reserved Seats");
+			System.out.println("3) Delete Seat Reservation");
+			System.out.println("4) Move Seat");
+			System.out.println("5) Save and Exit");
 			
-			do {
-				System.out.println("\nPlease choose an option: \n");
-				System.out.println("1) Reserve Seats");
-				System.out.println("2) View Reserved Seats");
-				System.out.println("3) Delete Seat Reservation");
-				System.out.println("4) Move Seat");
-				System.out.println("5) Save and Exit");
-				
-				int usrChoice = Integer.parseInt(scanner.nextLine());
-				
+			int usrChoice = Integer.parseInt(scanner.nextLine());
+			while (usrChoice != 5) {
 				switch (usrChoice) {
 					case 1: 
 						reserveSeat(seats, scanner);
@@ -58,38 +55,27 @@ public class SeatReservationMain {
 							else {
 								System.out.println("\nThanks for reserving your seats!\n");
 								printSeatingGrid(seats);
-								break;
 							}
 						
 						}
 						while(resp.equals("N"));
 						
 						break;
-						
 					case 2:
 						System.out.println("Option 2");
 						break;
-						
 					case 3:
 						System.out.println("Option 3");
 						break;
-						
 					case 4:
 						System.out.println("Option 4");
 						break;
-						
-					case 5:
-						System.out.println("Thank you for using the application!");
-						usrFinished = true;
-						break;
-						
 					default:
-						System.out.println("Invalid Option, Try again");
+						System.out.println("Invalid Option");
 						break;
 					
-				}
 			}
-			while (usrFinished == false);
+			}
 		}
 	
 	public static Seat[][] genSeats(int numRows, int numCols) {

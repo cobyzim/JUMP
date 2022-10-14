@@ -84,7 +84,7 @@ public class SeatReservationMain {
 						break;
 						
 					default:
-						System.out.println("Invalid Option, Try again");
+						System.out.println("Invalid Option");
 						break;
 					
 				}
