@@ -86,7 +86,6 @@ public class SeatReservationMain {
 		while (usrFinished == false);
 	}
 	
-	//Method to print possible user options
 	public static void printOptions() {
 		System.out.println("\nPlease choose an option: \n");
 		System.out.println("1) Reserve Seats");
@@ -96,7 +95,7 @@ public class SeatReservationMain {
 		System.out.println("5) Save and Exit");
 	}
 	
-	//Initialize 2D array with empty seats
+	//Initialize 2D array wtih empty seats
 	public static Seat[][] genSeats(int numRows, int numCols) {
 		Seat[][] seatGrid = new Seat[numRows][numCols];
 		for (int i = 0; i < numRows; i++) {
@@ -108,7 +107,7 @@ public class SeatReservationMain {
 		return seatGrid;
 	}
 	
-	//Check for empty seat method
+	//Check for empty seat helper method
 	public static boolean seatIsEmpty(Seat seat) {
 		boolean isEmpty = false;
 		if (seat.getName() == null) {
@@ -166,7 +165,7 @@ public class SeatReservationMain {
 		System.out.println();
 	}
 	
-	//Row validity check method
+	//Row validity check helper method
 	public static int returnRow(Scanner scanner) {
 		int row = 0;
 		try {
@@ -188,7 +187,7 @@ public class SeatReservationMain {
 		}
 	}
 	
-	//Column validity check method
+	//Column validity check helper method
 	public static int returnCol(Scanner scanner) {
 		int col = 0;
 		try {
@@ -210,7 +209,7 @@ public class SeatReservationMain {
 		}
 	}
 	
-	//String validity check method
+	//String validity check helper method
 	public static String returnName(Scanner scanner) {
 		String name = scanner.nextLine();
 		while (!(name.length() > 0)) {
@@ -221,10 +220,7 @@ public class SeatReservationMain {
 		return name;
 	}
 	
-	//Method for viewing people in seats that are already reserved
-	public static void viewReservedSeats(Seat[][] seats) {
-		
-	}
+	
 	
 	
 	

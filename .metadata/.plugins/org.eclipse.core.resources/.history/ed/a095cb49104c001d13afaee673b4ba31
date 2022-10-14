@@ -221,10 +221,7 @@ public class SeatReservationMain {
 		return name;
 	}
 	
-	//Method for viewing people in seats that are already reserved
-	public static void viewReservedSeats(Seat[][] seats) {
-		
-	}
+	
 	
 	
 	
