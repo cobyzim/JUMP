@@ -11,12 +11,9 @@ public class SeatReservationMain {
 		//Display empty seats grid
 		printSeatingGrid(seats);
 		
-		//TODO: Have an options menu pop up first so people can choose what they want to do
-		//TODO: i.e. list the names of the people in a reserved seat: probably do this in a separate do-while
-		
 		reserveSeat(seats, scanner);
 		
-		//Do-While Loop if user wants to continue
+		//Do Loop if user wants to continue
 		String resp = "";
 		do {
 			System.out.println("Are you finished reserving seats? (Y/N)");
@@ -38,7 +35,7 @@ public class SeatReservationMain {
 	
 	public static Seat[][] genSeats(int numRows, int numCols) {
 		Seat[][] seatGrid = new Seat[numRows][numCols];
-		//Initialize seats so that the objects aren't null
+		//Have to initialize seats so that the objects aren't null
 		for (int i = 0; i < numRows; i++) {
 			for (int j = 0; j < numCols; j++) {
 				seatGrid[i][j] = new Seat();
@@ -79,17 +76,20 @@ public class SeatReservationMain {
 		}
 	}
 	
-	//Method to reserve seats based on user input
 	public static void reserveSeat(Seat[][] seats, Scanner scanner) {
 		System.out.println();
 		System.out.println("Which seat do you want to reserve?");
 		System.out.println("Row: ");
 		
+//		int row = Integer.parseInt(scanner.nextLine());
+		//TODO: Add check to make sure provided row is valid
 		int row = returnRow(scanner);
 		System.out.println("Column: ");
-		int col = returnCol(scanner);
+		int col = Integer.parseInt(scanner.nextLine());
+		//TODO: Add check to make sure provided col is valid
 		System.out.println("Name of person sitting here: ");
-		String name = returnName(scanner);
+		String name = scanner.nextLine();
+		//TODO: Add check to make sure name is actually a string (not a char or number)
 		System.out.println();
 
 		if (seats[row - 1][col - 1].getName() == null) {
@@ -102,11 +102,12 @@ public class SeatReservationMain {
 			reserveSeat(seats, scanner);
 		}
 		
+		
 		printSeatingGrid(seats);
 		System.out.println();
 	}
 	
-	//Row validity check helper method
+	
 	public static int returnRow(Scanner scanner) {
 		int row = 0;
 		try {
@@ -119,46 +120,14 @@ public class SeatReservationMain {
 			return row;
 		}
 		catch (NumberFormatException e){
+			System.out.println("INVALID ROW: Row must be a number between 1 and 5\n");
 			while (row != 1 && row != 2 && row != 3 && row != 4 && row !=5) {
-				System.out.println("INVALID ROW: Row must be a number between 1 and 5\n");
 				System.out.println("Row: ");
 				row = Integer.parseInt(scanner.nextLine());
 			}
-			return row;
 		}
+		return -1;
 	}
 	
-	//Column validity check helper method
-	public static int returnCol(Scanner scanner) {
-		int col = 0;
-		try {
-			col = Integer.parseInt(scanner.nextLine());
-			while (col != 1 && col != 2 && col != 3 && col != 4 && col !=5) {
-				System.out.println("INVALID COLUMN: Please enter a valid column (1-5)\n");
-				System.out.println("Column: ");
-				col = Integer.parseInt(scanner.nextLine());
-			}
-			return col;
-		}
-		catch (NumberFormatException e) {
-			while (col != 1 && col != 2 && col != 3 && col != 4 && col !=5) {
-				System.out.println("INVALID COLUMN: Column must be a number between 1 and 5\n");
-				System.out.println("Column: ");
-				col = Integer.parseInt(scanner.nextLine());
-			}
-			return col;
-		}
-	}
-	
-	//String validity check helper method
-	public static String returnName(Scanner scanner) {
-		String name = scanner.nextLine();
-		while (!(name.length() > 0)) {
-			System.out.println("INVALID NAME: Name must not be blank");
-			System.out.println("Name of person sitting here: ");
-			name = scanner.nextLine();
-		}
-		return name;
-	}
 	
 }

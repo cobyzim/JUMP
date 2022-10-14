@@ -11,12 +11,9 @@ public class SeatReservationMain {
 		//Display empty seats grid
 		printSeatingGrid(seats);
 		
-		//TODO: Have an options menu pop up first so people can choose what they want to do
-		//TODO: i.e. list the names of the people in a reserved seat: probably do this in a separate do-while
-		
 		reserveSeat(seats, scanner);
 		
-		//Do-While Loop if user wants to continue
+		//Do Loop if user wants to continue
 		String resp = "";
 		do {
 			System.out.println("Are you finished reserving seats? (Y/N)");
@@ -38,7 +35,7 @@ public class SeatReservationMain {
 	
 	public static Seat[][] genSeats(int numRows, int numCols) {
 		Seat[][] seatGrid = new Seat[numRows][numCols];
-		//Initialize seats so that the objects aren't null
+		//Have to initialize seats so that the objects aren't null
 		for (int i = 0; i < numRows; i++) {
 			for (int j = 0; j < numCols; j++) {
 				seatGrid[i][j] = new Seat();
@@ -160,5 +157,6 @@ public class SeatReservationMain {
 		}
 		return name;
 	}
+	
 	
 }
