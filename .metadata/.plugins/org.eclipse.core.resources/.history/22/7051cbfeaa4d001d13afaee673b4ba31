@@ -228,7 +228,7 @@ public class SeatReservationMain {
 				}
 			}
 		}
-		if (counter == 25) {
+		if (counter == 24) {
 			System.out.println("No seats are reserved at the moment.");
 		}
 	}
@@ -239,24 +239,15 @@ public class SeatReservationMain {
 		String name = scanner.nextLine();
 		
 		//Check if that person has a reserved seat
-		boolean personFound = false;
 		for (int row = 0; row < seats.length; row++) {
 			for (int col = 0; col < seats[row].length; col++) {
 				Seat currSeat = seats[row][col];
 				if (currSeat.getName() != null) {
 					if (currSeat.getName().equals(name)) {
-						personFound = true;
 						currSeat.setName(null);
 					}
 				}
 			}
-		}
-		
-		if (personFound) {
-			System.out.printf("%s's seat reservation was deleted", name);
-		}
-		else {
-			System.out.printf("%s does not have a reserved seat", name);
 		}
 	}
 	
