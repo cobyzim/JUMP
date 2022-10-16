@@ -143,9 +143,12 @@ public class SeatReservationMain {
 	public static void reserveSeat(Seat[][] seats, Scanner scanner) {
 		System.out.println();
 		System.out.println("Which seat do you want to reserve?");
+		System.out.println("Row: ");
 		
 		int row = returnRow(scanner);
+		System.out.println("Column: ");
 		int col = returnCol(scanner);
+		System.out.println("Name of person sitting here: ");
 		String name = returnName(scanner);
 		System.out.println();
 
@@ -166,22 +169,26 @@ public class SeatReservationMain {
 	//Row validity check method
 	public static int returnRow(Scanner scanner) {
 		boolean bool = true;
-		int row = 0;
+		int row;
 		do {
 			try {
-				System.out.println("Row: ");
 				row = Integer.parseInt(scanner.nextLine());
-				
-				if (row != 1 && row != 2 && row != 3 && row != 4 && row !=5) {
+				while (row != 1 && row != 2 && row != 3 && row != 4 && row !=5) {
 					System.out.println("INVALID ROW: Please enter a valid row (1-5)\n");
+					System.out.println("Row: ");
+					row = Integer.parseInt(scanner.nextLine());
 				}
-				else {
-					bool = false;
-				}
+				break;
+				//return row;
 			}
 			catch (NumberFormatException e){
+				//while (row != 1 && row != 2 && row != 3 && row != 4 && row !=5) {
 				System.out.println("INVALID ROW: Row must be a number between 1 and 5\n");
+				//}
+				//return row;
 			}
+			System.out.println("Row: ");
+			row = Integer.parseInt(scanner.nextLine());
 		}
 		while (bool);
 		
@@ -190,32 +197,28 @@ public class SeatReservationMain {
 	
 	//Column validity check method
 	public static int returnCol(Scanner scanner) {
-		boolean bool = true;
 		int col = 0;
-		do {
-			try {
+		try {
+			col = Integer.parseInt(scanner.nextLine());
+			while (col != 1 && col != 2 && col != 3 && col != 4 && col !=5) {
+				System.out.println("INVALID COLUMN: Please enter a valid column (1-5)\n");
 				System.out.println("Column: ");
 				col = Integer.parseInt(scanner.nextLine());
-				
-				if (col != 1 && col != 2 && col != 3 && col != 4 && col !=5) {
-					System.out.println("INVALID Column: Please enter a valid column (1-5)\n");
-				}
-				else {
-					bool = false;
-				}
 			}
-			catch (NumberFormatException e){
-				System.out.println("INVALID COLUMN: Column must be a number between 1 and 5\n");
-			}
+			return col;
 		}
-		while (bool);
-		
-		return col;
+		catch (NumberFormatException e) {
+			while (col != 1 && col != 2 && col != 3 && col != 4 && col !=5) {
+				System.out.println("INVALID COLUMN: Column must be a number between 1 and 5\n");
+				System.out.println("Column: ");
+				col = Integer.parseInt(scanner.nextLine());
+			}
+			return col;
+		}
 	}
 	
 	//String validity check method
 	public static String returnName(Scanner scanner) {
-		System.out.println("Name of person sitting here: ");
 		String name = scanner.nextLine();
 		while (!(name.length() > 0)) {
 			System.out.println("INVALID NAME: Name must not be blank");
