@@ -226,14 +226,6 @@ public class SeatReservationMain {
 		}
 	}
 	
-	//Method to delete a seating reservation
-	public static void deleteReservation(Seat[][] seats, Scanner scanner) {
-		System.out.println("Who's seat reservation would you like to delete?: ");
-		String name = scanner.nextLine();
-		
-		
-	}
-	
 	
 	
 	

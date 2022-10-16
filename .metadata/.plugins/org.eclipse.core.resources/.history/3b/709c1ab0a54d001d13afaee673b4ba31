@@ -9,10 +9,22 @@ public class SeatReservationMain {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Display empty seats grid
-		//TODO: Probably get rid of this
 		printSeatingGrid(seats);
 		
+		//TODO: Have an options menu pop up first so people can choose what they want to do
+		//TODO: i.e. list the names of the people in a reserved seat: probably do this in a separate do-while
 		menuOptions(scanner, seats);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	
@@ -49,7 +61,7 @@ public class SeatReservationMain {
 					break;
 						
 				case 2:
-					viewReservedSeats(seats);
+					System.out.println("Option 2");
 					break;
 						
 				case 3:
@@ -224,14 +236,6 @@ public class SeatReservationMain {
 				}
 			}
 		}
-	}
-	
-	//Method to delete a seating reservation
-	public static void deleteReservation(Seat[][] seats, Scanner scanner) {
-		System.out.println("Who's seat reservation would you like to delete?: ");
-		String name = scanner.nextLine();
-		
-		
 	}
 	
 	
