@@ -278,7 +278,6 @@ public class SeatReservationMain {
 				if (currSeat.getName() != null) {
 					if (currSeat.getName().equals(name)) {
 						personFound = true;
-						currSeat.setName(null);
 					}
 				}
 			}
@@ -301,6 +300,8 @@ public class SeatReservationMain {
 			for (int col = 0; col < seats[row].length; col++) {
 				Seat currSeat = seats[row][col];
 				if (currSeat.getName() == null) {
+					System.out.printf("Seat row %d, column %d is available", currSeat.getRow(), 
+							currSeat.getCol());
 					isOpenSeats = true;
 				}
 			}

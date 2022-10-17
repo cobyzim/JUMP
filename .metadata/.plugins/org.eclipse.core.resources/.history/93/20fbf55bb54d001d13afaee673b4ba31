@@ -27,8 +27,6 @@ public class SeatReservationMain {
 				
 			switch (usrChoice) {
 				case 1: 
-					System.out.println();
-					System.out.println("Which seat do you want to reserve?");
 					reserveSeat(seats, scanner);
 					
 					//Do-While Loop if user wants to continue
@@ -38,8 +36,6 @@ public class SeatReservationMain {
 						resp = scanner.nextLine().toUpperCase();
 						
 						if (resp.equals("N")) {
-							System.out.println();
-							System.out.println("Which seat do you want to reserve?");
 							reserveSeat(seats, scanner);
 						}
 						else {
@@ -61,7 +57,7 @@ public class SeatReservationMain {
 					break;
 						
 				case 4:
-					moveSeats(seats, scanner);
+					System.out.println("Option 4");
 					break;
 						
 				case 5:
@@ -133,6 +129,8 @@ public class SeatReservationMain {
 	
 	//Method to reserve seats based on user input
 	public static void reserveSeat(Seat[][] seats, Scanner scanner) {
+		System.out.println();
+		System.out.println("Which seat do you want to reserve?");
 		
 		int row = returnRow(scanner);
 		int col = returnCol(scanner);
@@ -278,7 +276,6 @@ public class SeatReservationMain {
 				if (currSeat.getName() != null) {
 					if (currSeat.getName().equals(name)) {
 						personFound = true;
-						currSeat.setName(null);
 					}
 				}
 			}
@@ -286,7 +283,7 @@ public class SeatReservationMain {
 		
 		if (personFound == true) {
 			System.out.println("Okay! Which seat would you like to swap to?: ");
-			reserveSeat(seats, scanner);
+			
 		}
 		else {
 			System.out.printf("%s has not reserved a seat yet!", name);
@@ -301,6 +298,8 @@ public class SeatReservationMain {
 			for (int col = 0; col < seats[row].length; col++) {
 				Seat currSeat = seats[row][col];
 				if (currSeat.getName() == null) {
+					System.out.printf("Seat row %d, column %d is available", currSeat.getRow(), 
+							currSeat.getCol());
 					isOpenSeats = true;
 				}
 			}

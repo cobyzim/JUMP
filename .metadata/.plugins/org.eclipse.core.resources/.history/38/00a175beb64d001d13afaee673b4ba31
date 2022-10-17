@@ -278,7 +278,6 @@ public class SeatReservationMain {
 				if (currSeat.getName() != null) {
 					if (currSeat.getName().equals(name)) {
 						personFound = true;
-						currSeat.setName(null);
 					}
 				}
 			}
