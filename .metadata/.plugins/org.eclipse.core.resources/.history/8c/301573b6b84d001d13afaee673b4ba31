@@ -9,6 +9,7 @@ public class SeatReservationMain {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Display empty seats grid
+		//TODO: Probably get rid of this
 		printSeatingGrid(seats);
 		
 		menuOptions(scanner, seats);

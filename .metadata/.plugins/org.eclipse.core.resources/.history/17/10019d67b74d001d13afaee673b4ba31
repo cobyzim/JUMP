@@ -9,6 +9,7 @@ public class SeatReservationMain {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Display empty seats grid
+		//TODO: Probably get rid of this
 		printSeatingGrid(seats);
 		
 		menuOptions(scanner, seats);
@@ -288,7 +289,7 @@ public class SeatReservationMain {
 			reserveSeat(seats, scanner);
 		}
 		else {
-			System.out.printf("\n%s has not reserved a seat yet!\n", name);
+			System.out.printf("%s has not reserved a seat yet!", name);
 		}
 		
 	}

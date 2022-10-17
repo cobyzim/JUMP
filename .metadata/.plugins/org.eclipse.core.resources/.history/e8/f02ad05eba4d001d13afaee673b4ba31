@@ -1,6 +1,7 @@
 package com.cognixia.jump.miniproject;
 
 import java.util.Scanner;
+import java.io.File;
 
 public class SeatReservationMain {
 
@@ -9,6 +10,7 @@ public class SeatReservationMain {
 		Scanner scanner = new Scanner(System.in);
 		
 		//Display empty seats grid
+		//TODO: Probably get rid of this
 		printSeatingGrid(seats);
 		
 		menuOptions(scanner, seats);
