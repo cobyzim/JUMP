@@ -15,7 +15,7 @@ public class SeatReservationMain {
 		
 	}
 	
-	//User Choices Helper Method
+	//User Choices Method
 	public static void menuOptions(Scanner scanner, Seat[][] seats) {
 		boolean usrFinished = false;
 			
