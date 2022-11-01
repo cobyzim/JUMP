@@ -52,18 +52,10 @@ public class PreparedStatementsExercise {
 			
 			ResultSet rs = pstmt.executeQuery();
 			
-			//if (credits >= 0 && credits <= 30) {
-				while (rs.next()) {
-					System.out.println("Name: " + rs.getString("first_name") + " " + rs.getString("last_name")
-							+ "     Credits: " + rs.getInt("credits"));
-				}
-			//}
-//			else if (credits > 30 && credits <= 60) {
-//				while (rs.next()) {
-//					System.out.println("Name: " + rs.getString("first_name") + " " + rs.getString("last_name")
-//							+ "     Credits: " + credits);
-//				}
-//			}
+			while (rs.next()) {
+				System.out.println("Name: " + rs.getString("first_name") + " " + rs.getString("last_name")
+						+ "     Credits: " + rs.getInt("credits"));
+			}
 				
 			rs.close();
 			pstmt.close();

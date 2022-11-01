@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Example</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="display-2" >API Example</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <!-- My addition below -->
+                    <th>City</th>
+
+                </tr>
+            </thead>
+            <tbody id="t-body">
+                <tr>
+                    <td>0</td>
+                    <td>Some Name</td>
+                    <td>user1</td>
+                    <td>user@gmail.com</td>
+                    <!-- My addition below -->
+                    <td>Some City</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <br><br><br>
+        <hr>
+
+        <div>
+            <h2>JSON Users</h2>
+            <p id="json-users"></p>
+        </div>
+
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script>
+
+        // will use API from https://jsonplaceholder.typicode.com/
+
+        const userURL = "https://jsonplaceholder.typicode.com/users";
+
+        
+        // fetch -> promised-based library for making API calls
+        // fetch( url ) => return a promise object that is handling the API request
+
+
+        /*
+            Finish the creatRow() function
+            - lessen the repeat code
+            - add in the username and email cells
+            - try to also add the city for all users
+
+            Extra Challenge:
+            - http://acnhapi.com/doc#operation/get-songs-songID
+            - API: http://acnhapi.com/v1/songs
+            - take all the albums and display their name and image
+        */
+
+        const createRow = (user) => {
+
+            // create the row for the user
+            const tr = document.createElement("tr");
+
+            // create the cell for the id
+            const userId = document.createElement("td");
+            // create the text that will go inside the cell
+            const idText = document.createTextNode( "" + user.id )
+            // append the text to the cell, and the cell to the row
+            userId.appendChild(idText)
+            tr.appendChild(userId);
+
+            const name = document.createElement("td")
+            const nameText = document.createTextNode(user.name)
+            name.appendChild(nameText)
+            tr.appendChild(name)
+
+            //MY CODE (Attempt to add in username, email, and city cells)
+            const username = document.createElement("td");
+            const usernameText = document.createTextNode(user.username);
+            username.appendChild(usernameText);
+            tr.appendChild(username);
+
+            const email = document.createElement("td");
+            const emailText = document.createTextNode(user.email);
+            email.appendChild(emailText);
+            tr.appendChild(email);
+
+            const city = document.createElement("td");
+            const cityText = document.createTextNode(user.address.city);
+            city.appendChild(cityText);
+            tr.appendChild(city);
+
+
+            // get the body element and attach the new row
+            const tbody = document.getElementById("t-body")
+            tbody.appendChild(tr)
+        }
+
+
+
+        var myData;
+
+        // response -> response from making the API call
+        fetch(userURL)
+            .then( (response) => {
+
+                console.log("RESPONSE:");
+                console.log(response);
+                
+                // response.json() -> extract the json data held within the object
+                return response.json(); // data
+            } )
+            .then( data => {
+
+                console.log("DATA:")
+                console.log(data) // array of user objects
+
+                // loop through users in the data (array) and create a row for each user
+                for(user of data) {
+                    createRow(user)
+                }
+
+                myData = data; // won't set in time
+
+                // stringify() -> json is converted from an object to a string
+                document.getElementById("json-users").innerText = 
+                    JSON.stringify(data);
+            } ) 
+            .catch( error => {
+                console.error(error)
+            })
+
+            // won't extract the data outside of the fetch in time to print it to the console
+            console.log("myData = " + myData)
+    </script>
+</body>
+</html>

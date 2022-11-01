@@ -159,3 +159,4 @@
 2022-10-27 09:06:29,778 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/cobyz/JUMP/firstmaven/src/main/resources
 2022-10-27 09:06:29,780 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-10-27 09:06:29,780 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/cobyz/JUMP/firstmaven/src/test/resources
+2022-10-30 15:51:20,200 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
