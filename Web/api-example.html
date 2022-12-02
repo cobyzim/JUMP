@@ -18,22 +18,21 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Email</th>
+                    <th>Album Name</th>
+                    <th>Image</th>
+                    <!-- <th>Email</th> -->
                     <!-- My addition below -->
-                    <th>City</th>
-
+                    <!-- <th>City</th> -->
                 </tr>
             </thead>
             <tbody id="t-body">
                 <tr>
                     <td>0</td>
-                    <td>Some Name</td>
-                    <td>user1</td>
-                    <td>user@gmail.com</td>
+                    <td>Some Album Name</td>
+                    <td>Some Image</td>
+                    <!-- <td>user@gmail.com</td> -->
                     <!-- My addition below -->
-                    <td>Some City</td>
+                    <!-- <td>Some City</td> -->
                 </tr>
             </tbody>
         </table>
@@ -55,8 +54,8 @@
 
         // will use API from https://jsonplaceholder.typicode.com/
 
-        const userURL = "https://jsonplaceholder.typicode.com/users";
-
+        //const userURL = "https://jsonplaceholder.typicode.com/users";
+        const userURL = "http://acnhapi.com/v1/songs";
         
         // fetch -> promised-based library for making API calls
         // fetch( url ) => return a promise object that is handling the API request
@@ -87,26 +86,32 @@
             userId.appendChild(idText)
             tr.appendChild(userId);
 
-            const name = document.createElement("td")
-            const nameText = document.createTextNode(user.name)
-            name.appendChild(nameText)
-            tr.appendChild(name)
+            const albumName = document.createElement("td")
+            const albumNameText = document.createTextNode(user.name['name-USen']);
+            albumName.appendChild(albumNameText)
+            tr.appendChild(albumName)
+
+            const cover = document.createElement("td");
+            const covering = new Image(200,200);
+            covering.src = user.image_uri;
+            cover.appendChild(covering);
+            tr.appendChild(cover);
 
             //MY CODE (Attempt to add in username, email, and city cells)
-            const username = document.createElement("td");
-            const usernameText = document.createTextNode(user.username);
-            username.appendChild(usernameText);
-            tr.appendChild(username);
+            // const username = document.createElement("td");
+            // const usernameText = document.createTextNode(user.username);
+            // username.appendChild(usernameText);
+            // tr.appendChild(username);
 
-            const email = document.createElement("td");
-            const emailText = document.createTextNode(user.email);
-            email.appendChild(emailText);
-            tr.appendChild(email);
+            // const email = document.createElement("td");
+            // const emailText = document.createTextNode(user.email);
+            // email.appendChild(emailText);
+            // tr.appendChild(email);
 
-            const city = document.createElement("td");
-            const cityText = document.createTextNode(user.address.city);
-            city.appendChild(cityText);
-            tr.appendChild(city);
+            // const city = document.createElement("td");
+            // const cityText = document.createTextNode(user.address.city);
+            // city.appendChild(cityText);
+            // tr.appendChild(city);
 
 
             // get the body element and attach the new row
@@ -134,8 +139,11 @@
                 console.log(data) // array of user objects
 
                 // loop through users in the data (array) and create a row for each user
-                for(user of data) {
-                    createRow(user)
+                for(let user in data) {
+                    // console.log('user');
+                    // console.log(data[user]);
+                    // let row = data[user];
+                    createRow(data[user])
                 }
 
                 myData = data; // won't set in time

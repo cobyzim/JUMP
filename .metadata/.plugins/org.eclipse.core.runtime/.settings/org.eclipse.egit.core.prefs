@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=/Users/cobyz/JUMP/.git\:
-GitRepositoriesView.GitDirectories.relative=.git\:
+GitRepositoriesView.GitDirectories=/Users/cobyz/Jump_Prog_Tracker/.git\:/Users/cobyz/JUMP/.git\:/Users/cobyz/Jump_Progress_Tracker/.git\:
+GitRepositoriesView.GitDirectories.relative=/Users/cobyz/Jump_Prog_Tracker/.git\:.git\:/Users/cobyz/Jump_Progress_Tracker/.git\:
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
